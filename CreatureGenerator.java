@@ -64,30 +64,29 @@ public class CreatureGenerator {
 	public static void read(ArrayList<ArrayList<String>> list, String fileName){
 			
 		String csvFile = fileName;
-	    BufferedReader br = null;
-	    String line = "";
-	    String temp = "";
-	    int j=0;
+	    	BufferedReader br = null;
+	    	String line = "";
+	   	String temp = "";
+	   	int j=0;
 	    
-	    try {
-	        br = new BufferedReader(new FileReader(csvFile));
-	        line = br.readLine();
-	        while ((line = br.readLine()) != null) {
-	        	list.add(new ArrayList<String>());
-	        	for(int i=0; i<line.length(); i++){
-	        		if(line.charAt(i) != ','){
-	        			temp += line.charAt(i);
-	        		}else{
-	        			list.get(j).add(temp);
-	        			temp = "";
+	    	try{
+	        	br = new BufferedReader(new FileReader(csvFile));
+	        	line = br.readLine();
+	        	while ((line = br.readLine()) != null) {
+	        		list.add(new ArrayList<String>());
+	        		for(int i=0; i<line.length(); i++){
+	        			if(line.charAt(i) != ','){
+	        				temp += line.charAt(i);
+	        			}else{
+	        				list.get(j).add(temp);
+	        				temp = "";
+	        			}
 	        		}
+	        		j++;
 	        	}
-	        	j++;
-	        }
-	    } catch (IOException e) {
-	    	System.out.println(e);
-	    }
-	          
+	    	}catch (IOException e){
+	    		System.out.println(e);
+	    	}        
 	}  
 	
 	public static void main(String args[]){
